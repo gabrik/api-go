@@ -672,7 +672,8 @@ func (f *FDUAPI) Start(instanceid string, env *string) (string, error) {
 	}
 	res, err := f.connector.Global.Actual.StartFDUInNode(f.sysid, f.tenantid, instanceid, environment)
 	if err != nil {
-		return "", &fog05sdk.FError{*res.ErrorMessage + " ErrNo: " + string(*res.Error), nil}
+		//return "", &fog05sdk.FError{*res.ErrorMessage + " ErrNo: " + string(*res.Error), nil}
+		return "", &fog05sdk.FError{"Error in starting FDU", nil}
 	}
 
 	return *res.Result, nil
